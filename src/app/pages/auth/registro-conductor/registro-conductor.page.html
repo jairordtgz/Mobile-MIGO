@@ -1,0 +1,122 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: #2c2c2c;">
+    <div class="flex items-center px-4 py-3 bg-[#2c2c2c]">
+      <ion-icon name="chevron-back" (click)="irAtras()" class="text-white text-3xl cursor-pointer active:scale-95 transition-transform"></ion-icon>
+      <h1 class="text-white text-lg font-medium tracking-wide flex-1 text-center pr-8">
+        REGISTRO
+      </h1>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style="--background: #2c2c2c;">
+  <div class="px-6 pb-10">
+    
+    <div class="flex justify-center mt-6 mb-6">
+      <img src="assets/images/migo_logo.png" alt="Migo Ads" class="h-20 object-contain" onerror="this.style.display='none'">
+    </div>
+
+    <div class="border-b border-gray-300 pb-1 mb-6">
+      <h2 class="text-white text-sm font-medium">Información personal</h2>
+    </div>
+
+    <div class="flex flex-col space-y-4">
+      
+      <div class="flex items-center">
+        <span class="text-white text-sm font-medium w-2/5">C.I.</span>
+        <input type="number" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner" />
+      </div>
+
+      <div class="flex items-center">
+        <span class="text-white text-sm font-medium w-2/5">Nombres</span>
+        <input type="text" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner" />
+      </div>
+
+      <div class="flex items-center">
+        <span class="text-white text-sm font-medium w-2/5">Apellidos</span>
+        <input type="text" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner" />
+      </div>
+
+      <div class="flex items-center">
+        <span class="text-white text-sm font-medium w-2/5">Fecha Nacimiento</span>
+        <input type="date" [(ngModel)]="fechaNacimiento" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner text-gray-700" />
+      </div>
+
+      <div class="flex items-center">
+        <span class="text-white text-sm font-medium w-2/5">Correo Electrónico</span>
+        <input type="email" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner" />
+      </div>
+
+      <div class="flex items-center">
+        <span class="text-white text-sm font-medium w-2/5">Contraseña</span>
+        <div class="relative w-3/5">
+          <input type="password" class="w-full bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner pr-10" />
+          <ion-icon name="eye-off" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-800 text-lg"></ion-icon>
+        </div>
+      </div>
+
+      <div class="flex items-center">
+        <span class="text-white text-sm font-medium w-2/5 leading-tight">Repetir Contraseña</span>
+        <div class="relative w-3/5">
+          <input type="password" class="w-full bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner pr-10" />
+          <ion-icon name="eye-off" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-800 text-lg"></ion-icon>
+        </div>
+      </div>
+
+      <div class="flex items-center">
+        <span class="text-white text-sm font-medium w-2/5">Teléfono</span>
+        <input type="tel" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner" />
+      </div>
+
+      <div class="flex items-center">
+        <span class="text-white text-sm font-medium w-2/5">Sexo</span>
+        <div class="relative w-3/5">
+          <select class="w-full bg-white rounded-full px-4 py-2 text-gray-700 text-sm outline-none appearance-none shadow-inner pr-8">
+            <option value="">Seleccio...</option>
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+          </select>
+          <ion-icon name="caret-down" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"></ion-icon>
+        </div>
+      </div>
+
+      <div class="flex items-center">
+        <span class="text-white text-sm font-medium w-2/5">País</span>
+        <div class="relative w-3/5">
+          <select class="w-full bg-white rounded-full px-4 py-2 text-gray-700 text-sm outline-none appearance-none shadow-inner pr-8">
+            <option value="">Seleccio...</option>
+            <option value="EC">Ecuador</option>
+          </select>
+          <ion-icon name="caret-down" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"></ion-icon>
+        </div>
+      </div>
+
+      <div class="flex items-center">
+        <span class="text-white text-sm font-medium w-2/5">Ciudad</span>
+        <div class="relative w-3/5">
+          <select class="w-full bg-white rounded-full px-4 py-2 text-gray-700 text-sm outline-none appearance-none shadow-inner pr-8">
+            <option value="">Seleccio...</option>
+            <option value="GYE">Guayaquil</option>
+          </select>
+          <ion-icon name="caret-down" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"></ion-icon>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="flex items-start mt-8 mb-6">
+      <ion-checkbox mode="md" class="mr-3 mt-0.5 border-white border" style="--background: transparent; --border-color: white; --checkmark-color: #00c2b8;"></ion-checkbox>
+      <p class="text-white text-xs leading-tight">
+        Al utilizar nuestra aplicación, usted acepta los: y <br>
+        <a href="#" class="underline font-bold text-white">Términos y Condiciones</a> y <a href="#" class="underline font-bold text-white">Política en Privacidad</a>
+      </p>
+    </div>
+
+    <div class="flex justify-start">
+      <button (click)="registrarse()" class="bg-[#00c2b8] active:bg-teal-600 text-white font-bold py-2.5 px-6 rounded-lg text-sm shadow-md transition-colors tracking-wide">
+        REGISTRARSE
+      </button>
+    </div>
+
+  </div>
+</ion-content>

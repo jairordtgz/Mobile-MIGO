@@ -1,0 +1,138 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: #2c2c2c;">
+    <div class="flex items-center px-4 py-3 bg-[#2c2c2c]">
+      <ion-icon name="chevron-back" (click)="irAtras()" class="text-white text-3xl cursor-pointer active:scale-95 transition-transform"></ion-icon>
+      <h1 class="text-white text-lg font-medium tracking-wide flex-1 text-center pr-8 uppercase">
+        REGISTRAR VEHÍCULO
+      </h1>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style="--background: #2c2c2c;">
+  
+  <div class="w-full bg-[#2c2c2c] flex items-center justify-center py-3">
+    <span class="text-sm text-gray-500 font-medium">Banner Publicitario</span>
+  </div>
+
+  <div class="bg-[#00c2b8] w-full py-2 px-4 shadow-md">
+    <h2 class="text-black text-lg font-medium">Información del conductor</h2>
+  </div>
+
+  <div class="px-4 py-4 flex flex-col space-y-3">
+    <div class="flex flex-col">
+      <label class="text-white text-sm font-bold mb-1">Nombre</label>
+      <input type="text" placeholder="Ingrese el nombre" class="bg-white rounded-full px-4 py-2.5 text-black text-sm outline-none" />
+    </div>
+    <div class="flex flex-col">
+      <label class="text-white text-sm font-bold mb-1">Apellido</label>
+      <input type="text" placeholder="Ingrese el apellido" class="bg-white rounded-full px-4 py-2.5 text-black text-sm outline-none" />
+    </div>
+    <div class="flex flex-col">
+      <label class="text-white text-sm font-bold mb-1">Cédula</label>
+      <input type="number" placeholder="0" class="bg-white rounded-full px-4 py-2.5 text-black text-sm outline-none" />
+    </div>
+    <div class="flex flex-col">
+      <label class="text-white text-sm font-bold mb-1">Fecha de Nacimiento</label>
+      <input type="date" class="bg-white rounded-full px-4 py-2.5 text-gray-700 text-sm outline-none" />
+    </div>
+    <div class="flex flex-col">
+      <label class="text-white text-sm font-bold mb-1">Sexo</label>
+      <select class="bg-white rounded-full px-4 py-2.5 text-gray-500 text-sm outline-none appearance-none">
+        <option>Seleccionar Sexo</option>
+        <option>Masculino</option>
+        <option>Femenino</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="bg-[#00c2b8] w-full py-2 px-4 shadow-md mt-2">
+    <h2 class="text-black text-lg font-medium">Información del vehículo</h2>
+  </div>
+
+  <div class="px-4 py-4 flex flex-col space-y-3">
+    <div class="flex flex-col">
+      <label class="text-white text-sm font-bold mb-1">Placa</label>
+      <input type="text" placeholder="Ingrese la placa. Ejemplo: GXY1234" class="bg-white rounded-full px-4 py-2.5 text-black text-sm outline-none uppercase" />
+    </div>
+    <div class="flex flex-col">
+      <label class="text-white text-sm font-bold mb-1">Año</label>
+      <input type="number" placeholder="Ingrese el año" class="bg-white rounded-full px-4 py-2.5 text-black text-sm outline-none" />
+    </div>
+    <div class="flex flex-col">
+      <label class="flex items-center text-white text-sm font-bold mb-1">Marca <ion-icon name="help-circle-outline" class="ml-1 text-[#00c2b8] text-base"></ion-icon></label>
+      <select class="bg-white rounded-full px-4 py-2.5 text-gray-500 text-sm outline-none appearance-none">
+        <option>Seleccionar marca</option>
+      </select>
+    </div>
+    <div class="flex flex-col">
+      <label class="flex items-center text-white text-sm font-bold mb-1">Modelo <ion-icon name="help-circle-outline" class="ml-1 text-[#00c2b8] text-base"></ion-icon></label>
+      <select class="bg-white rounded-full px-4 py-2.5 text-gray-500 text-sm outline-none appearance-none">
+        <option>Seleccionar modelo</option>
+      </select>
+    </div>
+    <div class="flex flex-col">
+      <label class="flex items-center text-white text-sm font-bold mb-1">Categoría <ion-icon name="help-circle-outline" class="ml-1 text-[#00c2b8] text-base"></ion-icon></label>
+      <select class="bg-white rounded-full px-4 py-2.5 text-gray-500 text-sm outline-none appearance-none">
+        <option>Seleccionar categoría</option>
+      </select>
+    </div>
+    <div class="flex flex-col">
+      <label class="text-white text-sm font-bold mb-1">Color</label>
+      <select class="bg-white rounded-full px-4 py-2.5 text-gray-500 text-sm outline-none appearance-none">
+        <option>Seleccionar color</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="bg-[#00c2b8] w-full py-2 px-4 shadow-md mt-2 mb-4">
+    <h2 class="text-black text-lg font-medium">Fotos del vehículo</h2>
+  </div>
+
+  <div class="grid grid-cols-2 gap-4 px-4 pb-8">
+    
+    <div class="border-[3px] border-dashed border-white rounded-[20px] h-56 flex flex-col items-center justify-center p-2 relative overflow-hidden bg-[#333333]">
+      <img *ngIf="fotos.lateralIzq" [src]="fotos.lateralIzq" class="absolute inset-0 w-full h-full object-cover opacity-60">
+      
+      <span class="text-white font-medium text-sm mb-3 z-10">Lateral Izquierdo</span>
+      <button (click)="tomarFoto('lateralIzq')" class="bg-[#222222] text-[#00c2b8] font-bold py-2 px-4 rounded text-xs z-10 shadow-lg active:bg-black uppercase">
+        {{ fotos.lateralIzq ? 'Cambiar Foto' : 'Tomar Foto' }}
+      </button>
+    </div>
+
+    <div class="border-[3px] border-dashed border-white rounded-[20px] h-56 flex flex-col items-center justify-center p-2 relative overflow-hidden bg-[#333333]">
+      <img *ngIf="fotos.lateralDer" [src]="fotos.lateralDer" class="absolute inset-0 w-full h-full object-cover opacity-60">
+      
+      <span class="text-white font-medium text-sm mb-3 z-10">Lateral Derecho</span>
+      <button (click)="tomarFoto('lateralDer')" class="bg-[#222222] text-[#00c2b8] font-bold py-2 px-4 rounded text-xs z-10 shadow-lg active:bg-black uppercase">
+        {{ fotos.lateralDer ? 'Cambiar Foto' : 'Tomar Foto' }}
+      </button>
+    </div>
+
+    <div class="border-[3px] border-dashed border-white rounded-[20px] h-56 flex flex-col items-center justify-center p-2 relative overflow-hidden bg-[#333333]">
+      <img *ngIf="fotos.trasera" [src]="fotos.trasera" class="absolute inset-0 w-full h-full object-cover opacity-60">
+      
+      <span class="text-white font-medium text-sm mb-3 z-10">Foto Trasera</span>
+      <button (click)="tomarFoto('trasera')" class="bg-[#222222] text-[#00c2b8] font-bold py-2 px-4 rounded text-xs z-10 shadow-lg active:bg-black uppercase">
+        {{ fotos.trasera ? 'Cambiar Foto' : 'Tomar Foto' }}
+      </button>
+    </div>
+
+    <div class="border-[3px] border-dashed border-white rounded-[20px] h-56 flex flex-col items-center justify-center p-2 relative overflow-hidden bg-[#333333]">
+      <img *ngIf="fotos.frontal" [src]="fotos.frontal" class="absolute inset-0 w-full h-full object-cover opacity-60">
+      
+      <span class="text-white font-medium text-sm mb-3 z-10">Foto Frontal</span>
+      <button (click)="tomarFoto('frontal')" class="bg-[#222222] text-[#00c2b8] font-bold py-2 px-4 rounded text-xs z-10 shadow-lg active:bg-black uppercase">
+        {{ fotos.frontal ? 'Cambiar Foto' : 'Tomar Foto' }}
+      </button>
+    </div>
+
+  </div>
+
+  <div class="flex justify-center pb-12 px-4">
+    <button (click)="finalizarRegistro()" class="bg-[#00c2b8] active:bg-teal-600 text-black font-bold py-3 px-8 rounded-lg text-[15px] shadow-md transition-colors uppercase tracking-wide">
+      AGREGAR VEHÍCULO
+    </button>
+  </div>
+
+</ion-content>

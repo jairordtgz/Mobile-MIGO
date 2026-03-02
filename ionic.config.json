@@ -1,0 +1,7 @@
+{
+  "name": "Mobile-MIGO",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
