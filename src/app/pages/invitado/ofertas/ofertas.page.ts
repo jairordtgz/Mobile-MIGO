@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-// Agregamos 'chevronBack' a la lista de iconos
 import {
   menuOutline, notifications, chevronDownOutline, megaphone,
   business, location, logoUsd, homeOutline, speedometerOutline,
@@ -50,7 +49,6 @@ export class OfertasPage implements OnInit {
   ];
 
   constructor(private router: Router) {
-    // Registramos la flechita aquí también
     addIcons({
       menuOutline, notifications, chevronDownOutline, megaphone,
       business, location, logoUsd, homeOutline, speedometerOutline,
@@ -64,12 +62,10 @@ export class OfertasPage implements OnInit {
     this.segmentoActivo = segmento;
   }
 
-  // Función para ir al Registro (botón turquesa)
   irARegistro() {
     this.router.navigate(['/auth/registro-conductor']);
   }
 
-  // NUEVA: Función para regresar al Login con la flechita
   irALogin() {
     this.router.navigate(['/auth/login']);
   }

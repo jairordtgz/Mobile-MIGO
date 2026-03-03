@@ -1,13 +1,51 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" style="--background: #2c2c2c;">
+  <div class="flex flex-col items-center min-h-full px-10 py-12">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <div class="mb-14 mt-8 w-full flex justify-center">
+      <img src="assets/images/migo_logo.png" alt="Migo Ads" class="h-28 object-contain" onerror="this.style.display='none'">
+    </div>
+
+    <div class="w-full flex flex-col space-y-8">
+
+      <div class="border-b border-white pb-2">
+        <input type="email" [(ngModel)]="correoPlaca" placeholder="Correo Electrónico"
+               class="w-full bg-transparent text-white placeholder-white outline-none font-bold text-sm">
+      </div>
+
+      <div class="border-b border-white pb-2 relative">
+        <input [type]="mostrarContrasena ? 'text' : 'password'" [(ngModel)]="contrasena" placeholder="Contraseña"
+               class="w-full bg-transparent text-white placeholder-white outline-none font-bold text-sm pr-10">
+        
+        <ion-icon [name]="mostrarContrasena ? 'eye-outline' : 'eye-off-outline'"
+                  (click)="toggleContrasena()"
+                  class="absolute right-2 top-1/2 -translate-y-1/2 text-white text-lg cursor-pointer active:scale-90 transition-transform"></ion-icon>
+      </div>
+
+    </div>
+
+    <p (click)="irARecuperar()" class="text-white text-center text-sm mt-3 font-medium cursor-pointer active:text-[#00c2b8]">
+      ¿Olvidaste tu contraseña?
+    </p>
+
+    <button (click)="iniciarSesion()" class="bg-[#00c2b8] active:bg-teal-600 text-black font-bold py-3 px-8 rounded-xl mt-10 text-[15px] shadow-md tracking-wide">
+      INICIAR SESIÓN
+    </button>
+
+    <div class="flex flex-col items-center space-y-1.5 mt-8">
+      <p (click)="irARegistro()" class="text-white text-[15px] font-medium cursor-pointer active:text-[#00c2b8]">Crear Cuenta</p>
+      <p (click)="irAInvitado()" class="text-white text-[15px] font-medium cursor-pointer active:text-[#00c2b8]">Accede como invitado</p>
+      <p class="text-white text-[15px] font-medium mt-2">o iniciar sesión con:</p>
+    </div>
+
+    <button class="bg-[#00c2b8] active:bg-teal-600 rounded-full w-14 h-14 flex items-center justify-center mt-4 shadow-lg transition-transform active:scale-95">
+      <ion-icon name="logo-google" class="text-white text-3xl font-bold"></ion-icon>
+    </button>
+
+    <div class="mt-auto pt-10 pb-4">
+      <p class="text-white text-[10px] text-center leading-tight px-2">
+        Al utilizar nuestra aplicación, usted acepta los: <a href="#" class="underline font-bold">Términos y Condiciones</a> y <a href="#" class="underline font-bold">Política en Privacidad</a>
+      </p>
+    </div>
+
+  </div>
 </ion-content>

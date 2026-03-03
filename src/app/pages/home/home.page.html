@@ -1,0 +1,74 @@
+<ion-content [fullscreen]="true" style="--background: #1a1a1a;">
+  
+  <div class="flex items-center justify-between px-4 py-3 bg-[#1a1a1a]">
+    <ion-icon name="menu-outline" class="text-white text-3xl"></ion-icon>
+    <div class="bg-white rounded-md px-3 py-1 flex items-center space-x-2">
+      <span class="text-black font-semibold text-sm">Ordenar Por</span>
+      <ion-icon name="chevron-down" class="text-black text-xs"></ion-icon>
+    </div>
+    <ion-icon name="notifications" class="text-[#00c2b8] text-2xl"></ion-icon>
+  </div>
+
+  <div class="w-full h-12 bg-black flex items-center justify-center border-y border-gray-800">
+    <span class="text-white text-sm font-semibold">Banner Publicitario</span>
+  </div>
+
+  <div class="px-4 py-4">
+    <div class="flex bg-[#2c2c2c] rounded-xl p-1 mb-6">
+      <button (click)="segmentoActivo = 'campanas'" 
+              [class.bg-white]="segmentoActivo === 'campanas'" [class.text-black]="segmentoActivo === 'campanas'"
+              [class.text-gray-400]="segmentoActivo !== 'campanas'"
+              class="flex-1 flex items-center justify-center space-x-2 py-2 rounded-lg font-bold text-sm transition-colors">
+        <ion-icon name="megaphone-outline"></ion-icon>
+        <span>Campañas</span>
+      </button>
+      <button (click)="segmentoActivo = 'marcas'" 
+              [class.bg-white]="segmentoActivo === 'marcas'" [class.text-black]="segmentoActivo === 'marcas'"
+              [class.text-gray-400]="segmentoActivo !== 'marcas'"
+              class="flex-1 flex items-center justify-center space-x-2 py-2 rounded-lg font-bold text-sm transition-colors">
+        <ion-icon name="business-outline"></ion-icon>
+        <span>Marcas</span>
+      </button>
+    </div>
+
+    <div *ngIf="segmentoActivo === 'campanas'">
+      <p class="text-white font-bold mb-4 text-center">Campañas disponibles en Guayaquil</p>
+      
+      <div class="bg-white rounded-3xl p-5 relative shadow-md">
+        <div class="absolute top-4 right-4 text-gray-300 text-xs italic flex items-center">
+          <ion-icon name="caret-up-outline" class="mr-1"></ion-icon> Marca
+        </div>
+
+        <h3 class="text-black font-bold text-lg leading-tight">CAMPAÑA NUEVA</h3>
+        <p class="text-gray-600 text-sm mt-1">Empresa: empresa prueba</p>
+        <p class="text-gray-600 text-sm">Publicado: 2025-10-27</p>
+        <p class="text-gray-600 text-sm mb-4">Regístrate hasta: 2025-10-27</p>
+
+        <div class="flex justify-between items-end">
+          <div class="space-y-1">
+            <div class="flex items-center text-[#00c2b8] space-x-2">
+              <ion-icon name="location-outline" class="text-xl"></ion-icon>
+              <span class="text-sm font-semibold text-black">sector centro campaña 1</span>
+            </div>
+            <div class="flex items-center text-[#00c2b8] space-x-2">
+              <ion-icon name="logo-usd" class="text-xl"></ion-icon>
+              <span class="text-sm font-semibold text-black">10 por KM</span>
+            </div>
+          </div>
+          <button class="border-2 border-[#00c2b8] text-[#00c2b8] font-bold py-2 px-5 rounded-xl text-sm active:bg-teal-50">
+            REGÍSTRATE
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="segmentoActivo === 'marcas'">
+      <p class="text-white font-bold mb-4 text-center">Marcas inscritas en Ecuador</p>
+      <div class="bg-white rounded-3xl p-5 shadow-md text-center">
+         <p class="text-black font-bold">EMPRESA PRUEBA</p>
+         <button class="bg-[#00c2b8] text-white font-bold py-2 px-6 rounded-xl mt-4">VER MÁS</button>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

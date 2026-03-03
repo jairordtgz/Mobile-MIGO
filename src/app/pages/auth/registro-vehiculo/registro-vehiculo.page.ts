@@ -4,11 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { 
-  IonHeader, IonToolbar, IonContent, IonIcon 
+  IonHeader, IonToolbar, IonContent, IonIcon, AlertController 
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-// Agregamos chevronBack y helpCircle para igualar el diseño
-import { chevronBack, helpCircleOutline } from 'ionicons/icons';
+import { chevronBack, helpCircleOutline, chevronDown } from 'ionicons/icons';
 
 @Component({
   selector: 'app-registro-vehiculo',
@@ -21,44 +20,55 @@ import { chevronBack, helpCircleOutline } from 'ionicons/icons';
 })
 export class RegistroVehiculoPage implements OnInit {
 
-  // Lógica intacta para guardar las fotos (HU2)
-  fotos: any = {
-    lateralIzq: null,
-    lateralDer: null,
-    trasera: null,
-    frontal: null,
-    aerea: null
+  fotos = {
+    lateralIzq: '' as string | undefined,
+    lateralDer: '' as string | undefined,
+    trasera: '' as string | undefined,
+    aerea: '' as string | undefined,
+    frontal: '' as string | undefined
   };
 
-  constructor(private router: Router) { 
-    addIcons({ chevronBack, helpCircleOutline });
+  constructor(
+    private router: Router,
+    private alertController: AlertController
+  ) { 
+    addIcons({ chevronBack, helpCircleOutline, chevronDown });
   }
 
   ngOnInit() { }
 
-  // Función para la flecha superior
   irAtras() {
     this.router.navigate(['/auth/registro-conductor']);
   }
 
-  // Lógica intacta de la Cámara
   async tomarFoto(lado: string) {
     try {
       const image = await Camera.getPhoto({
         quality: 90,
         allowEditing: false,
-        resultType: CameraResultType.DataUrl, 
-        source: CameraSource.Camera 
+        resultType: CameraResultType.DataUrl,
+        source: CameraSource.Prompt 
       });
-      this.fotos[lado] = image.dataUrl;
+      
+      this.fotos[lado as keyof typeof this.fotos] = image.dataUrl;
     } catch (error) {
-      console.log('El usuario canceló la foto o hubo un error', error);
+      console.log('El usuario canceló la foto o cerró el explorador', error);
     }
   }
 
-  finalizarRegistro() {
-    console.log('Fotos capturadas:', this.fotos);
-    // Regresamos al login o a ofertas al terminar
-    this.router.navigate(['/auth/login']);
+  async finalizarRegistro() {
+    console.log('Fotos capturadas listas para enviar al backend:', this.fotos);
+    
+    const alert = await this.alertController.create({
+      header: '¡Registro Completado!',
+      message: 'Los datos de tu vehículo se han guardado.',
+      buttons: [{
+        text: 'Ir al Login',
+        handler: () => {
+          this.router.navigate(['/auth/login']);
+        }
+      }]
+    });
+    await alert.present();
   }
 }
