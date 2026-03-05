@@ -51,6 +51,10 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/panel/panel.page').then(m => m.PanelPage)
       },
       {
+        path: 'perfil',
+        loadComponent: () => import('./pages/perfil/perfil.page').then( m => m.PerfilPage)  
+      },
+      {
         path: '**',
         redirectTo: '/tabs/home',
         pathMatch: 'full'

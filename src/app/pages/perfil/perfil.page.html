@@ -1,0 +1,95 @@
+<ion-content [fullscreen]="true" style="--background: #1a1a1a;">
+
+  <div class="flex items-center justify-between px-4 py-3 bg-[#1a1a1a]">
+    <div class="w-8"></div>
+    <span class="text-white font-bold tracking-widest text-lg uppercase">MI PERFIL</span>
+    <ion-icon name="notifications" class="text-[#00c2b8] text-2xl"></ion-icon>
+  </div>
+
+  <div class="px-4 py-4 pb-24 space-y-6">
+
+    <div class="bg-[#2c2c2c] rounded-3xl p-6 shadow-lg border border-gray-700">
+
+      <div class="flex flex-col items-center border-b border-gray-600 pb-4 mb-4">
+        <div class="h-20 w-20 bg-gray-800 rounded-full flex items-center justify-center mb-3 border-2 border-[#00c2b8]">
+          <ion-icon name="person-circle-outline" class="text-white text-6xl"></ion-icon>
+        </div>
+        <h2 class="text-white font-black text-xl uppercase tracking-wider">{{ perfil.nombre }} {{ perfil.apellido }}
+        </h2>
+        <p class="text-[#00c2b8] text-xs font-semibold mt-1">{{ perfil.email }}</p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-y-4 gap-x-2 text-sm">
+        <div>
+          <p class="text-gray-500 text-[10px] uppercase font-bold">Cédula</p>
+          <p class="text-white font-medium">{{ perfil.cedula }}</p>
+        </div>
+        <div>
+          <p class="text-gray-500 text-[10px] uppercase font-bold">Teléfono</p>
+          <p class="text-white font-medium">{{ perfil.telefono }}</p>
+        </div>
+        <div>
+          <p class="text-gray-500 text-[10px] uppercase font-bold">Nacimiento</p>
+          <p class="text-white font-medium">{{ perfil.fecha_nacimiento }}</p>
+        </div>
+        <div>
+          <p class="text-gray-500 text-[10px] uppercase font-bold">Sexo</p>
+          <p class="text-white font-medium">{{ perfil.sexo }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-3xl overflow-hidden shadow-lg">
+      <p class="text-black font-black uppercase tracking-widest text-xs bg-gray-100 px-5 py-3 border-b border-gray-200">
+        Gestión de Cuenta
+      </p>
+
+      <div class="flex flex-col">
+        <button class="flex items-center px-5 py-4 border-b border-gray-100 active:bg-gray-50 transition-colors">
+          <ion-icon name="speedometer-outline" class="text-[#00c2b8] text-xl mr-4"></ion-icon>
+          <span class="text-black font-bold text-sm flex-1 text-left">Dashboard</span>
+          <ion-icon name="chevron-forward" class="text-gray-400"></ion-icon>
+        </button>
+
+        <button class="flex items-center px-5 py-4 border-b border-gray-100 active:bg-gray-50 transition-colors">
+          <ion-icon name="document-text-outline" class="text-[#00c2b8] text-xl mr-4"></ion-icon>
+          <span class="text-black font-bold text-sm flex-1 text-left">Mis Solicitudes</span>
+          <ion-icon name="chevron-forward" class="text-gray-400"></ion-icon>
+        </button>
+
+        <button class="flex items-center px-5 py-4 border-b border-gray-100 active:bg-gray-50 transition-colors">
+          <ion-icon name="megaphone-outline" class="text-[#00c2b8] text-xl mr-4"></ion-icon>
+          <span class="text-black font-bold text-sm flex-1 text-left">Campaña Activa</span>
+          <ion-icon name="chevron-forward" class="text-gray-400"></ion-icon>
+        </button>
+
+        <button class="flex items-center px-5 py-4 border-b border-gray-100 active:bg-gray-50 transition-colors">
+          <ion-icon name="time-outline" class="text-[#00c2b8] text-xl mr-4"></ion-icon>
+          <span class="text-black font-bold text-sm flex-1 text-left">Campañas Anteriores</span>
+          <ion-icon name="chevron-forward" class="text-gray-400"></ion-icon>
+        </button>
+
+        <button class="flex items-center px-5 py-4 active:bg-gray-50 transition-colors">
+          <ion-icon name="car-outline" class="text-[#00c2b8] text-xl mr-4"></ion-icon>
+          <span class="text-black font-bold text-sm flex-1 text-left">Verificación de mi vehículo</span>
+          <ion-icon name="chevron-forward" class="text-gray-400"></ion-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <button (click)="agregarVehiculo()"
+        class="w-full bg-[#00c2b8] active:bg-teal-600 text-black font-black py-4 px-6 rounded-2xl shadow-lg flex items-center justify-center space-x-2 transition-transform active:scale-95">
+        <ion-icon name="add-circle-outline" class="text-2xl"></ion-icon>
+        <span class="tracking-widest uppercase text-sm">Agregar Vehículo</span>
+      </button>
+
+      <button (click)="cerrarSesion()"
+        class="w-full bg-transparent border-2 border-red-500 active:bg-red-500 active:text-white text-red-500 font-bold py-3 px-6 rounded-2xl flex items-center justify-center space-x-2 transition-colors">
+        <ion-icon name="log-out-outline" class="text-xl"></ion-icon>
+        <span class="uppercase text-xs tracking-widest">Cerrar Sesión</span>
+      </button>
+    </div>
+
+  </div>
+</ion-content>
