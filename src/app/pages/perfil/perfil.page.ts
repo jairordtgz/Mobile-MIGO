@@ -8,8 +8,6 @@ import {
   timeOutline, speedometerOutline, carOutline, addCircleOutline,
   notifications, chevronForward, logOutOutline
 } from 'ionicons/icons';
-
-// Importamos la interfaz desde la nueva carpeta
 import { Perfil } from '../../../interfaces/perfil';
 
 @Component({
@@ -20,8 +18,6 @@ import { Perfil } from '../../../interfaces/perfil';
   imports: [CommonModule, IonContent, IonIcon]
 })
 export class PerfilPage implements OnInit {
-
-  // Usamos la interfaz importada
   perfil: Perfil = {
     nombre: 'Emilio',
     apellido: 'Romero',

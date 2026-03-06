@@ -24,33 +24,33 @@
       
       <div class="flex items-center">
         <span class="text-white text-sm font-medium w-2/5">C.I.</span>
-        <input type="number" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner" />
+        <input type="number" [(ngModel)]="datosConductor.cedula" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner" />
       </div>
 
       <div class="flex items-center">
         <span class="text-white text-sm font-medium w-2/5">Nombres</span>
-        <input type="text" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner" />
+        <input type="text" [(ngModel)]="datosConductor.nombres" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner" />
       </div>
 
       <div class="flex items-center">
         <span class="text-white text-sm font-medium w-2/5">Apellidos</span>
-        <input type="text" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner" />
+        <input type="text" [(ngModel)]="datosConductor.apellidos" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner" />
       </div>
 
       <div class="flex items-center">
         <span class="text-white text-sm font-medium w-2/5">Fecha Nacimiento</span>
-        <input type="date" [(ngModel)]="fechaNacimiento" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner text-gray-700" />
+        <input type="date" [(ngModel)]="datosConductor.fecha_nacimiento" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner text-gray-700" />
       </div>
 
       <div class="flex items-center">
         <span class="text-white text-sm font-medium w-2/5">Correo Electrónico</span>
-        <input type="email" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner" />
+        <input type="email" [(ngModel)]="datosConductor.email" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner" />
       </div>
 
       <div class="flex items-center">
         <span class="text-white text-sm font-medium w-2/5">Contraseña</span>
         <div class="relative w-3/5">
-          <input type="password" class="w-full bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner pr-10" />
+          <input type="password" [(ngModel)]="datosConductor.password" class="w-full bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner pr-10" />
           <ion-icon name="eye-off" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-800 text-lg"></ion-icon>
         </div>
       </div>
@@ -58,21 +58,21 @@
       <div class="flex items-center">
         <span class="text-white text-sm font-medium w-2/5 leading-tight">Repetir Contraseña</span>
         <div class="relative w-3/5">
-          <input type="password" class="w-full bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner pr-10" />
+          <input type="password" [(ngModel)]="datosConductor.repetir_password" class="w-full bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner pr-10" />
           <ion-icon name="eye-off" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-800 text-lg"></ion-icon>
         </div>
       </div>
 
       <div class="flex items-center">
         <span class="text-white text-sm font-medium w-2/5">Teléfono</span>
-        <input type="tel" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner" />
+        <input type="tel" [(ngModel)]="datosConductor.telefono" class="w-3/5 bg-white rounded-full px-4 py-2 text-black text-sm outline-none shadow-inner" />
       </div>
 
       <div class="flex items-center">
         <span class="text-white text-sm font-medium w-2/5">Sexo</span>
         <div class="relative w-3/5">
-          <select class="w-full bg-white rounded-full px-4 py-2 text-gray-700 text-sm outline-none appearance-none shadow-inner pr-8">
-            <option value="">Seleccio...</option>
+          <select [(ngModel)]="datosConductor.sexo" class="w-full bg-white rounded-full px-4 py-2 text-gray-700 text-sm outline-none appearance-none shadow-inner pr-8">
+            <option value="" disabled selected>Seleccio...</option>
             <option value="M">Masculino</option>
             <option value="F">Femenino</option>
           </select>
@@ -83,8 +83,8 @@
       <div class="flex items-center">
         <span class="text-white text-sm font-medium w-2/5">País</span>
         <div class="relative w-3/5">
-          <select class="w-full bg-white rounded-full px-4 py-2 text-gray-700 text-sm outline-none appearance-none shadow-inner pr-8">
-            <option value="">Seleccio...</option>
+          <select [(ngModel)]="datosConductor.pais" class="w-full bg-white rounded-full px-4 py-2 text-gray-700 text-sm outline-none appearance-none shadow-inner pr-8">
+            <option value="" disabled selected>Seleccio...</option>
             <option value="EC">Ecuador</option>
           </select>
           <ion-icon name="caret-down" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"></ion-icon>
@@ -94,8 +94,8 @@
       <div class="flex items-center">
         <span class="text-white text-sm font-medium w-2/5">Ciudad</span>
         <div class="relative w-3/5">
-          <select class="w-full bg-white rounded-full px-4 py-2 text-gray-700 text-sm outline-none appearance-none shadow-inner pr-8">
-            <option value="">Seleccio...</option>
+          <select [(ngModel)]="datosConductor.ciudad" class="w-full bg-white rounded-full px-4 py-2 text-gray-700 text-sm outline-none appearance-none shadow-inner pr-8">
+            <option value="" disabled selected>Seleccio...</option>
             <option value="GYE">Guayaquil</option>
           </select>
           <ion-icon name="caret-down" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"></ion-icon>
@@ -105,7 +105,7 @@
     </div>
 
     <div class="flex items-start mt-8 mb-6">
-      <ion-checkbox mode="md" class="mr-3 mt-0.5 border-white border" style="--background: transparent; --border-color: white; --checkmark-color: #00c2b8;"></ion-checkbox>
+      <ion-checkbox [(ngModel)]="datosConductor.aceptaTerminos" mode="md" class="mr-3 mt-0.5 border-white border" style="--background: transparent; --border-color: white; --checkmark-color: #00c2b8;"></ion-checkbox>
       <p class="text-white text-xs leading-tight">
         Al utilizar nuestra aplicación, usted acepta los: y <br>
         <a href="#" class="underline font-bold text-white">Términos y Condiciones</a> y <a href="#" class="underline font-bold text-white">Política en Privacidad</a>

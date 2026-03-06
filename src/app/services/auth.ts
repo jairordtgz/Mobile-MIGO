@@ -22,7 +22,14 @@ export class AuthService {
     const headers = new HttpHeaders({
       'Authorization': `Token ${token}`
     });
-    return this.http.post(`${this.apiUrl}api/movil/usuario/${conductor_id}/registrar-vehiculo/`, formData, { headers });
+    return this.http.post(`${this.apiUrl}api/movil/usuario/conductor/${conductor_id}/registrar-vehiculo/`, formData, { headers });
+  }
+
+  obtenerCatalogos(token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Token ${token}`
+    });
+    return this.http.get(`${this.apiUrl}api/admin/catalogo/vehiculos/`, { headers }); 
   }
 
   obtenerCampanasPublicas(): Observable<any> {
