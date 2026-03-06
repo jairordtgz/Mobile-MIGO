@@ -9,6 +9,8 @@ import {
   business, location, logoUsd, homeOutline, speedometerOutline,
   calendarOutline, person, chevronBack
 } from 'ionicons/icons';
+import { CampaniaResponse, CampaniasService } from 'src/app/services/campanias.serivice';
+import { CampaniaList } from 'src/app/interfaces/campania';
 
 @Component({
   selector: 'app-ofertas',
@@ -21,34 +23,9 @@ export class OfertasPage implements OnInit {
 
   segmentoActivo: string = 'campanas';
 
-  campanasDisponibles = [
-    {
-      nombreCampana: 'Nombre de Campaña',
-      nombreEmpresa: 'Nombre de Empresa',
-      fechaPublicacion: '02/08/23',
-      fechaLimite: '23/08/23',
-      sectores: 'Sector / Sectores',
-      tarifa: 'Tarifa por KM'
-    },
-    {
-      nombreCampana: 'Campaña Verano',
-      nombreEmpresa: 'Coca Cola',
-      fechaPublicacion: '05/08/23',
-      fechaLimite: '25/08/23',
-      sectores: 'Norte / Sur',
-      tarifa: '$ 0.25'
-    },
-    {
-      nombreCampana: 'Campaña Escolar',
-      nombreEmpresa: 'Bic',
-      fechaPublicacion: '10/08/23',
-      fechaLimite: '30/08/23',
-      sectores: 'Centro',
-      tarifa: '$ 0.15'
-    }
-  ];
+  campanasDisponibles: CampaniaList[] = [];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private campaniasService: CampaniasService) {
     addIcons({
       menuOutline, notifications, chevronDownOutline, megaphone,
       business, location, logoUsd, homeOutline, speedometerOutline,
@@ -56,7 +33,16 @@ export class OfertasPage implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.campaniasService.getCampanias().subscribe({
+      next: (campanias) => {
+        this.campanasDisponibles = campanias;
+      },
+      error: (err) => {
+        console.error('Error fetching campanias:', err);
+      }
+    });
+  }
 
   cambiarSegmento(segmento: string) {
     this.segmentoActivo = segmento;
